@@ -1,12 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// DEPENDENCIES
+    import React from 'react';
+    import ReactDOM from 'react-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// REDUX
+    import { createStore } from 'redux'
+    import { Provider } from 'react-redux'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// REDUCERS
+    import reducer from './reducers'
+// COMPONENTS
+    import App from './App';
+
+
+// -- ** START CODE ** -- //
+// -- ** START CODE ** -- //
+
+// STEP 1 -> Create Store
+    const store = createStore(
+        reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
+
+ReactDOM.render(
+// STEP 2 -> Wrap <App /> inside of PROVIDER
+// STEP 3 -> Pass in STORE as PROPS into PROVIDER
+    <Provider store={store}>  
+        <App /> 
+    </Provider>,
+    document.getElementById('root')
+);
+
+
