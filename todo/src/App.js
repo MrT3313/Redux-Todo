@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
-import './App.css';
+// DEPENDENCIES
+  import React, { Component } from 'react';
 
+// COMPONENTS
+  import ToDoList from './components/ToDoList'
+
+// Styled Components
+  import styled from 'styled-components'
+
+const Wrapper_app = styled.div`
+  display: flex;
+  flex-direction: column;
+
+`;
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h2>Hello from Inside APP</h2>
-      </div>
+      <Wrapper_app>
+          <h2>Hello from Inside REDUX app</h2>
+          <ToDoList />
+      </Wrapper_app>
     );
   }
 }

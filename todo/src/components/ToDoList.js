@@ -1,6 +1,12 @@
 // DEPENDENCIES
-    import React, { Componetn } from 'react';
+    import React, { Component } from 'react';
     import { connect } from 'react-redux';
+
+// COMPONENTS
+    import EntryForm from './EntryForm'
+
+// MATERIAL UI
+    import { Card } from '@material-ui/core'
 
 // IMPORT ACTION CREATOR FUNCTIONS
 // -> pass into CONNECTION function
@@ -22,7 +28,12 @@ class ToDoList extends Component {
 
     render() {
         return (
-            <h2>Hello From Inside ToDoList</h2>
+            <>
+            <EntryForm />
+            <Card>
+                <h2>Hello From Inside (APP -> ToDoList)</h2>
+            </Card>
+            </>
         )
     }
 }

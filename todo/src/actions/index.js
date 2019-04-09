@@ -11,7 +11,7 @@
         // STEP 8.1 -> Return an Action
         return {
             type: ADD_TODO,
-            payload: newToDo
+            payload: new_ToDo
         }
     }
 

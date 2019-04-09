@@ -1,5 +1,5 @@
 // IMPORT ACTION CREATORS
-
+    import { ADD_TODO, COMPLETE_TODO } from '../actions'
 
 // STEP 4 -> SET INITIAL STATE
 const initialState = {
@@ -15,12 +15,14 @@ export default (state = initialState, action) => {
         switch(action.type) {
             case ADD_TODO:
                 return {
-                    
+                    ...state,
+                    todos: [...state.todos, action.payload]
                 }
             
             case COMPLETE_TODO:
                 return {
-
+                    ...state,
+                    
                 }
             default:
                 return state
