@@ -14,49 +14,67 @@
     import styled from 'styled-components'
 
 
-const Form_styles = styled.div`
+const Wrapper_Form = styled.div`
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
 
-    color: orange;
+    width: 400px;
+`;
+const EntryForm_Title = styled.h2`
+    text-align: center;
+`;
+const Form_Bottom = styled.form`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-    form {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        margin: 20px 0px;
-    }
+    margin: 20px 0px;
 `;
 class EntryForm extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            input_newToDo: undefined,
+            completed: false
+        }
+    }
+
+    changeHandler_textField = e => {
+        this.setState({
+            input_newToDo: e.target.value
+        })
     }
 
     // INVOKE PASSED ACTION CREATORS ON USER INTERACTION
-    methodToInvoke_AC() {
-        // Placehoder - CHANGE THIS
+    call_ADD_ToDo = e => {
+        e.preventDefault()
+        console.log('INVOKE ACTION CREATOR and send [', this.state.input_newToDo, '] to AC')
+        this.props.add_todo(this.state)
     }
 
     render() {
         return (
-            <Form_styles>
-                <Paper>
-                    <h2>Enter New ToDo Item</h2>
-                    <form>
+            <Paper>
+                <Wrapper_Form>
+                    <EntryForm_Title>
+                        Enter New ToDo Item
+                    </EntryForm_Title>
+                    <Form_Bottom>
                         <TextField
                             id='ToDo_String'
                             label="Enter ToDo Item"
+                            onChange={this.changeHandler_textField}
                         >
                         </TextField>
                         <Button
-                            // ADD ONCLICK
+                            onClick={this.call_ADD_ToDo}
                         >
                             Add This ToDo
                         </Button>
-                    </form>
-                </Paper>
-            </Form_styles>
+                    </Form_Bottom>
+                </Wrapper_Form>
+            </Paper>
         )
     }
 }
@@ -64,8 +82,8 @@ class EntryForm extends Component {
 // MAP STATE TO PROPS
     const mapStateToProps = (state) => {
         return {
-
-        }
+            todos: state.todos
+        };
     }
 
 // INVOKE CONNECT

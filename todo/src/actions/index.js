@@ -6,7 +6,7 @@
 // STEP 7.1 -> Create Action Creator
     export const add_todo = (new_ToDo) => {
         // DEBUBGGING
-        console.log('in add_todo ACTION CREATOR: Passed New ToDo = ',new_ToDo)
+        console.log('in ACTION CREATOR -> new_ToDo passed from entry form = ',new_ToDo)
 
         // STEP 8.1 -> Return an Action
         return {

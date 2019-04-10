@@ -8,6 +8,7 @@
 
 // REDUCERS
     import reducer from './reducers'
+    
 // COMPONENTS
     import App from './App';
 
