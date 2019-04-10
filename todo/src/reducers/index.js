@@ -27,10 +27,17 @@ export default (state = initialState, action) => {
                 }
             
             case COMPLETE_TODO:
-                console.log(action.payload)
+                console.log('PAYLOAD = ', action.payload)
+                console.log('STATE.TODOS pre filter = ', state.todos)
+                
+
+                // MAKE NEW OBJECT FOR STATE 
+                const NewStateObject_toPass = state.todos.filter( todo => todo.input_newToDo !== action.payload.input_newToDo )
+                console.log('that NEW NEW state.todos TO PASS', NewStateObject_toPass)
+
                 return {
                     ...state,
-                    
+                    todos: NewStateObject_toPass
                 }
             default:
                 return state

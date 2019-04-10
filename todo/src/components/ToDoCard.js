@@ -32,16 +32,25 @@ const Wrapper_Card = styled.div`
 `;
 
 class ToDoCard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            key: undefined
+        }
+    }
     // INVOKE PASSED ACTION CREATORS ON USER INTERACTION
     call_COMPLETE_ToDo = e => {
         e.preventDefault()
-        console.log(this.props)
-        console.log('invoke ACTION CREATOR: inside ToDoCard')
+        console.log('invoke ACTION CREATOR: COMPLETE_TODO inside ToDoCard')
+        console.log('pass ', this.props.todo)
+        this.props.complete_todo(this.props.todo)
     }
 
     call_REMOVE_ToDo = e => {
         e.preventDefault()
         console.log(this.props)
+        console.log('invoke ACTION CREATOR: DELETE inside ToDoCard')
+        
     }
 
     render() {
@@ -57,6 +66,7 @@ class ToDoCard extends Component {
                             class="far fa-check-square"
                         ></i>
                         <i 
+                            onClick={this.call_REMOVE_ToDo}
                             class="fas fa-minus-circle"
                         ></i>
                     </div>

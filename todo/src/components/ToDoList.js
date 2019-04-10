@@ -15,12 +15,28 @@ const Wrapper_ToDoList = styled.div`
     flex-direction: column;
 `;
 
+
+// ID COUNTER FOR PROPER COMPLETE / DELETE
+let idCounter = () => {
+    let id = 0;
+    return function() {
+        return id++;
+    };
+};
+
+const idUp = idCounter();
+
 class ToDoList extends Component {
+    constructor(props) {
+        super(props)
+
+    }
+
     render() {
         return (
             <Wrapper_ToDoList>
                 <EntryForm />
-                {this.props.todos.map( todo => <ToDoCard todo={todo}/> )}
+                {this.props.todos.map( todo => <ToDoCard key={idUp()} todo={todo}/> )}
             </Wrapper_ToDoList>
         )
     }

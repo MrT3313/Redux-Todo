@@ -16,14 +16,14 @@
     }
 
 // STEP 7.2 -> Create Action Creator
-    export const complete_todo = (selected_ToDo) => {
+    export const complete_todo = (cardText) => {
         // DEBUGGING
-        console.log('in complete_to ACTION CREATOR: Passed selected ToDo', selected_ToDo)
+        console.log('in complete_to ACTION CREATOR: Passed selected ToDo', cardText)
 
         // Step 8.1 -> Return in Action
         return {
             type: COMPLETE_TODO,
-            payload: selected_ToDo 
+            payload: cardText 
         }
     }
 
