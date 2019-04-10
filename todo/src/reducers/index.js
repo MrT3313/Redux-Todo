@@ -11,6 +11,16 @@ const initialState = {
     ]
 }
 
+// ID COUNTER FOR PROPER COMPLETE / DELETE
+let idCounter = () => {
+    let id = 0;
+    return function() {
+        return id++;
+    };
+};
+
+const idUp = idCounter();
+
 
 // STEP 5 -> CREATE REDUCER
 export default (state = initialState, action) => {
@@ -21,13 +31,16 @@ export default (state = initialState, action) => {
             case ADD_TODO:
                 console.log('in REDUCER -> what PAYLOAD recieved', action.payload)
 
+
                 return {
                     ...state,
-                    todos: [...state.todos, action.payload]
+                    todos: [...state.todos, {...action.payload, id:idUp()}]
                 }
             
             case COMPLETE_TODO:
+                
                 console.log('PAYLOAD = ', action.payload)
+
                 console.log('STATE.TODOS pre filter = ', state.todos)
                 
 
