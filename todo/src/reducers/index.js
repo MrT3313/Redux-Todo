@@ -25,17 +25,14 @@ export default (state = initialState, action) => {
             case ADD_TODO:
                 console.log('in REDUCER -> what PAYLOAD recieved', action.payload)
 
-
                 return {
                     ...state,
                     todos: [...state.todos, {...action.payload, id:idUp()}]
                 }
             
             case COMPLETE_TODO:
-                
                 console.log('PAYLOAD = ', action.payload)
                 console.log('PAYLOAD ID = ', action.payload.id)
-                console.log('STATE.TODOS pre filter = ', state.todos)
 
                 const newArray = state.todos.map( todo => {
                     if (todo.id === action.payload.id) {
@@ -43,30 +40,13 @@ export default (state = initialState, action) => {
                         console.log(todo)
                         console.log(todo.completed)
                     }
-                    return {
-                        // WORKS
-                            // ...newArray
-                        // WORKS
-                            ...state
-                    
-                    }
+                    return todo
                 })
-
-                // return {
-                    // WORKS
-                        // ...state
-                    // DOES NOT WORK
-                        // ...newArray
-                // }
-                
-            
-                
-
-                // return {
-                //     ...state,
-                //     [action.payload.completed]: {completed: !action.payload}
-                //     // todos: [...state.todos, {...action.payload, completed: !action.payload.completed}]
-                // }
+                console.log(newArray)
+                return {
+                    ...state,
+                    todos: newArray
+                }
             default:
                 return state
         }

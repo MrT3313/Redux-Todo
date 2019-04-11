@@ -53,10 +53,16 @@ class ToDoCard extends Component {
         
     }
 
+    renderClassName(passedToDo) {
+        console.log(passedToDo)
+        return passedToDo.completed === true ? 'completed_TRUE' : 'completed_FALSE'
+    }
+
     render() {
         return (
             <Card>
-                <Wrapper_Card>
+                {/* <Wrapper_Card className={this.renderClassName(this.props.todo)}> */}
+                <Wrapper_Card className={this.props.todo.completed ? 'completed_TRUE' : 'completed_FALSE'}>
                     <h2>
                         {this.props.todo.input_newToDo}
                     </h2>
