@@ -32,12 +32,12 @@ const Wrapper_Card = styled.div`
 `;
 
 class ToDoCard extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            key: undefined
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         key: undefined
+    //     }
+    // }
     // INVOKE PASSED ACTION CREATORS ON USER INTERACTION
     call_COMPLETE_ToDo = e => {
         e.preventDefault()
