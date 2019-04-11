@@ -13,6 +13,9 @@
 // Styled Components
     import styled from 'styled-components'
 
+// CSS 
+    import '../index.css'
+
 const Wrapper_Card = styled.div`
     display: flex;
     flex-direction: row;
