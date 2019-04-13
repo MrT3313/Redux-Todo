@@ -1,6 +1,7 @@
 // STEP 6 -> Create Action Types
     export const ADD_TODO = 'ADD_TODO';
     export const COMPLETE_TODO = 'COMPLETE_TODO'
+    export const REMOVE_TODO = 'REMOVE_TODO'
 
 
 // STEP 7.1 -> Create Action Creator
@@ -24,6 +25,16 @@
         return {
             type: COMPLETE_TODO,
             payload: todo 
+        }
+    }
+
+    export const remove_todo = (todo) => {
+        //DEBUGGING
+        console.log('in complete_to ACTION CREATOR: Passed selected ToDo', todo)
+
+        return {
+            type: REMOVE_TODO,
+            payload: todo
         }
     }
 

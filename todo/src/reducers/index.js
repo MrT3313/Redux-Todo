@@ -1,5 +1,5 @@
 // IMPORT ACTION CREATORS
-    import { ADD_TODO, COMPLETE_TODO } from '../actions'
+    import { ADD_TODO, COMPLETE_TODO, REMOVE_TODO } from '../actions'
 
 // STEP 4 -> SET INITIAL STATE
 const initialState = {
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
                 console.log('PAYLOAD = ', action.payload)
                 console.log('PAYLOAD ID = ', action.payload.id)
 
-                const newArray = state.todos.map( todo => {
+                const newArray_Complete = state.todos.map( todo => {
                     if (todo.id === action.payload.id) {
                         todo.completed = !action.payload.completed
                         console.log(todo)
@@ -42,11 +42,23 @@ export default (state = initialState, action) => {
                     }
                     return todo
                 })
-                console.log(newArray)
+                console.log(newArray_Complete)
                 return {
                     ...state,
-                    todos: newArray
+                    todos: newArray_Complete
                 }
+            
+            case REMOVE_TODO:
+                console.log('PAYLOAD = ', action.payload)
+                console.log('PAYLOAD ID = ', action.payload.id)
+
+                const newArray_Remove = state.todos.filter( todo => todo.id !== action.payload.id)
+                console.log(newArray_Remove)
+                return {
+                    ...state,
+                    todos: newArray_Remove
+                }
+
             default:
                 return state
         }

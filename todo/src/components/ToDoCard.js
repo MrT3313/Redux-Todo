@@ -5,7 +5,7 @@
 // COMPONENTS
 
 // IMPORT ACTION CREATOR FUNCTIONS
-    import { complete_todo } from '../actions'
+    import { complete_todo, remove_todo } from '../actions'
 
 // MATERIAL UI
     import { Card } from '@material-ui/core'
@@ -51,8 +51,10 @@ class ToDoCard extends Component {
 
     call_REMOVE_ToDo = e => {
         e.preventDefault()
-        console.log(this.props)
         console.log('invoke ACTION CREATOR: DELETE inside ToDoCard')
+        console.log(this.props)
+        console.log(this.props.todo)
+        this.props.remove_todo(this.props.todo)
         
     }
 
@@ -91,4 +93,4 @@ const mapStateToProps = ( state ) => {
     }
 }
 
-export default connect (mapStateToProps, { complete_todo })(ToDoCard)
+export default connect (mapStateToProps, { complete_todo, remove_todo })(ToDoCard)
